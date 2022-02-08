@@ -48,7 +48,7 @@ const ReactForm = (props) => {
     }
 
     return(
-        <Form onSubmit={registerSubmit}>
+        <Form onSubmit={registerSubmit} className="registerForm">
                         <FormGroup>
                             <Label for="firstName">
                                 First Name
@@ -70,7 +70,7 @@ const ReactForm = (props) => {
                                 name="lastName"
                                 placeholder="Last Name"
                                 type="text"
-                            onChange={(e) => setLastName(e.target.value)}
+                                onChange={(e) => setLastName(e.target.value)}
                             />
                         </FormGroup>
                         <FormGroup>
@@ -80,9 +80,9 @@ const ReactForm = (props) => {
                             <Input
                                 id="loginEmail"
                                 name="email"
-                                placeholder="email"
+                                placeholder="Email"
                                 type="email"
-                            onChange={(e) => setEmail(e.target.value)}
+                                onChange={(e) => setEmail(e.target.value)}
                             />
                         </FormGroup>
                         <FormGroup>
@@ -92,9 +92,9 @@ const ReactForm = (props) => {
                             <Input
                                 id="loginPassword"
                                 name="password"
-                                placeholder="password"
+                                placeholder="Password"
                                 type="password"
-                            onChange={(e) => setPassword(e.target.value)}
+                                onChange={(e) => setPassword(e.target.value)}
                             />
                         </FormGroup>
                         <Input type="submit" value="Register"/>

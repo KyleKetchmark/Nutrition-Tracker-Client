@@ -33,9 +33,6 @@ function App() {
   return (
     <div className='App'>
       {viewer()}
-      <div style={{display: "flex", justifyContent: "center", position: "fixed", marginTop: "70vh"}}>
-        <footer className="footer">2022 &copy; Created by Kyle Ketchmark, Bryson Taeza, & Andrew Broersma.</footer>
-      </div>
     </div>
   );
 }
