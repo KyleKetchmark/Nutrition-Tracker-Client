@@ -34,7 +34,7 @@ function App() {
     <div className='App'>
       {viewer()}
       <div style={{display: "flex", justifyContent: "center", position: "fixed", marginTop: "70vh"}}>
-        <footer className="footer">2021 &copy; Created by The 3 Stooges Co. & Co. Ltd.</footer>
+        <footer className="footer">2022 &copy; Created by Kyle Ketchmark, Bryson Taeza, & Andrew Broersma.</footer>
       </div>
     </div>
   );
