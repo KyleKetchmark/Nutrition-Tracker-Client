@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import "../Meals/meals.css"
+import "./meals.css"
 import Navbar from '../Navbar/Navbar';
 import {
     Button,
@@ -13,7 +13,7 @@ import {
     Table,
     Row
 } from 'reactstrap'
-import CreateMeal from '../Meals/CreateMeal/CreateMeal';
+import CreateMeal from './CreateMeal/CreateMeal';
 import DisplayTotals from './DisplayTotals/DisplayTotals';
 import Breakfast from '../Assets/breakfast.jpg'
 import Lunch from '../Assets/lunch.jpg'
