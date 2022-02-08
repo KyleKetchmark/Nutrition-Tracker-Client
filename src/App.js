@@ -26,16 +26,13 @@ function App() {
 
   const viewer = () => {
     return sessionToken !== undefined ? 
-    <Meals sessionToken={sessionToken} updateLocalStorage={updateLocalStorage} clearLocalStorage={clearLocalStorage}/> : 
-    <Auth updateLocalStorage={updateLocalStorage} />
+    <Meals sessionToken={sessionToken} updateLocalStorage={updateLocalStorage} clearLocalStorage={clearLocalStorage}/> 
+    : <Auth updateLocalStorage={updateLocalStorage} />
   }
 
   return (
     <div className='App'>
       {viewer()}
-      <div style={{display: "flex", justifyContent: "center", position: "fixed", marginTop: "70vh"}}>
-        <footer className="footer">2021 &copy; Created by The 3 Stooges Co. & Co. Ltd.</footer>
-      </div>
     </div>
   );
 }

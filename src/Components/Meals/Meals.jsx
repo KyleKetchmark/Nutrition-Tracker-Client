@@ -52,7 +52,7 @@ const Meals = (props) => {
     }
 
     const parseJwt = (token) => {
-        if (!token) { 
+        if (!token || token === undefined) { 
             return(null); 
         } else {
         const base64Url = token.split('.')[1];

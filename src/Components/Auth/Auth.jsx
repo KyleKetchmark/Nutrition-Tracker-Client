@@ -4,14 +4,13 @@ import { Form, FormGroup, Label, Input, Button, Modal, ModalHeader, ModalBody, M
 import "bootstrap/dist/css/bootstrap.css";
 import ReactForm from "./RegisterForm";
 import APIURL from "../../helpers/environment";
+import Healthy from "../Assets/health-clubs-gyms-icon.png"
 
 const Auth = (props) => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
     const [show, setShow] = useState(false);
-
 
     const loginSubmit = (event) => {
         event.preventDefault()
@@ -42,31 +41,35 @@ const Auth = (props) => {
         setShow(!show)
     }
 
-
     const ModalIsShowing = (e) => {
         return (
-            <Modal isOpen={show} toggle={toggleFunction} >
-                <ModalHeader toggle={toggleFunction}>
-                    Register
-                </ModalHeader>
-                <ModalBody>
-                    <ReactForm toggleFunction={toggleFunction} show={show} updateLocalStorage={props.updateLocalStorage}/>
-                </ModalBody>
-                <ModalFooter>
-                    <Button onClick={toggleFunction}>
-                        Cancel
-                    </Button>
-                </ModalFooter>
-            </Modal>
+            <div id="auth">
+                <Modal isOpen={show} toggle={toggleFunction} className="registerModal">
+                    <ModalHeader toggle={toggleFunction} style={{ textAlign: "center" }}>
+                        Register for a Nutrition Tracker Account
+                    </ModalHeader>
+                    <ModalBody>
+                        <ReactForm toggleFunction={toggleFunction} show={show} updateLocalStorage={props.updateLocalStorage} />
+                    </ModalBody>
+                    <ModalFooter>
+                        <Button onClick={toggleFunction}>
+                            Cancel
+                        </Button>
+                    </ModalFooter>
+                </Modal>
+            </div>
         )
     }
 
-
-    console.log(show)
     return (
-        <div style={{display: "flex", justifyContent: "center"}}>
-            <div style={{display: "flex", justifyContent: "center", width: "25em"}}>
-                <Form style={{width: "18em"}}>
+        <div id="loginPage">
+            <div id="loginInfo">
+                <img src={Healthy} alt="" style={{ margin: "1%" }} />
+                <h3 style={{ margin: "2%" }}><i>Welcome to the Nutrition Tracker App!</i></h3>
+                <p>Returning user? Login below. Otherwise press "Register" to sign up!</p>
+            </div>
+            <div style={{ display: "flex", justifyContent: "center", width: "25em", paddingTop: "3%" }}>
+                <Form className="registerForm">
                     <FormGroup>
                         <Label for="loginEmail">
                             Email
@@ -86,21 +89,32 @@ const Auth = (props) => {
                         <Input
                             id="loginPassword"
                             name="password"
-                            placeholder=""
+                            placeholder="enter password"
                             type="password"
                             onChange={(e) => setPassword(e.target.value)}
                         />
                     </FormGroup>
-                    <div style={{display: "flex", justifyContent: "center"}}>
-                        <Button onClick={(e) => { loginSubmit(e) }} style={{margin: "2px 5px"}}>
+                    <div style={{ display: "flex", justifyContent: "center" }}>
+                        <Button onClick={(e) => { loginSubmit(e) }} style={{ margin: "2px 5px" }}>
                             Login
                         </Button>
-                        <Button onClick={handleShow} style={{margin: "2px 5px"}}>
+                        <Button onClick={handleShow} style={{ margin: "2px 5px" }}>
                             Register
                         </Button>
                     </div>
                 </Form>
-                {show === true ? <ModalIsShowing /> : <></>}
+                    <div style={{
+                        display: "flex",
+                        position: "absolute",
+                        bottom: 0,
+                        width: "100%",
+                        height: "0",
+                        justifyContent: "center",
+                        textAlign: "center"
+                    }}>
+                        <footer className="footer">2022 &copy; Created by Kyle Ketchmark, Bryson Taeza, & Andrew Broersma.</footer>
+                    </div>
+                    {show === true ? <ModalIsShowing /> : <></>}
             </div>
         </div>
     )
