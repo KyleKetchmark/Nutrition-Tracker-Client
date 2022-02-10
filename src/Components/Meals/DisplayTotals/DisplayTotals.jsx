@@ -10,8 +10,6 @@ const DisplayTotals = (props) => {
 
     const doAnotherThing = () => {
         const arrayMeals = Object.entries(props.allMeals)
-        
-
         // console.log(arrayMeals)
         arrayMeals.map((data, key) => {
             if (data[1].mealCat === props.category) {

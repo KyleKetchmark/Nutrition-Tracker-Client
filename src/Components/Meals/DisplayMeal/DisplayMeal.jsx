@@ -9,18 +9,18 @@ const DisplayMeal = (props) => {
 
     const doTheThing = () => {
         let index = Object.values(props.nutroObj)
-        console.log(index)
+        // console.log(index)
         setThing(index)
     }
 
     const reqBody = (food) => {
-        console.log(food)
+        // console.log(food)
         const keys = ["foodName", "protein", "carbs", "fats", "kCal", "mealCat"]
         const values = thing[food]
         const newCat = parseInt(props.mealCat)
-        console.log(newCat)
+        // console.log(newCat)
         values.push(newCat)
-        console.log(values)
+        // console.log(values)
         const result = {};
         for (let index = 0; index < keys.length; ++index) {
             result[keys[index]] = (values[index]);
@@ -29,7 +29,6 @@ const DisplayMeal = (props) => {
     }
     
     const postMeal = () => {
-
 
         let url = `${APIURL}/meal/create`
 
@@ -47,19 +46,15 @@ const DisplayMeal = (props) => {
             .then(props.displayInRightSpot(props.category))
             .catch(err => console.log(err))
         };
-
-
-        console.log(reqBodyPost)
+        // console.log(reqBodyPost)
 
         useEffect(() => {
             doTheThing()
         }, [props])
 
-
         return (
             <>
                 <h3>After search select the row you want</h3>
-
                 {/* Below we have mapped over the selectedFoods arr that got returned from our arr of objs with 
                 all the keys to we wanted to display. It mapped through and we grabbed the said values at the given index
                 */}
@@ -70,11 +65,10 @@ const DisplayMeal = (props) => {
                                 <td id={[key]} onClick={(e) => postMeal(reqBody(e.target.id))}>Food: {selectedFoods[0]} Protein: {selectedFoods[1]} Fats: {selectedFoods[2]} Carbs: {selectedFoods[3]} kCal: {selectedFoods[4]}</td>
                             </tbody>
                         )
-
                     })
                 }
             </>
         )
     }
 
-    export default DisplayMeal;
+export default DisplayMeal;

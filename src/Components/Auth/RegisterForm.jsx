@@ -14,11 +14,6 @@ const ReactForm = (props) => {
     const registerSubmit = async (event) => {
         event.preventDefault()
 
-        console.log(firstName)
-        console.log(lastName)
-        console.log(email)
-        console.log(password)
-
         let reqBody = {
             firstName,
             lastName,
@@ -26,7 +21,7 @@ const ReactForm = (props) => {
             password
         }
 
-        console.log(reqBody)
+        // console.log(reqBody)
         let url = `${APIURL}/user/register`
 
         await fetch(url, {
@@ -38,10 +33,9 @@ const ReactForm = (props) => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 props.updateLocalStorage(data.sessionToken);
                 props.toggleFunction();
-                console.log(props.show);
+                // console.log(props.show);
             })
             .catch(err => console.log(err))
 
