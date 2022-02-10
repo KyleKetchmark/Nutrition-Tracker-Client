@@ -65,56 +65,49 @@ const Auth = (props) => {
         <div id="loginPage">
             <div id="loginInfo">
                 <img src={Healthy} alt="" style={{ margin: "1%" }} />
-                <h3 style={{ margin: "2%" }}><i>Welcome to the Nutrition Tracker App!</i></h3>
-                <p>Returning user? Login below. Otherwise press "Register" to sign up!</p>
+                <div className="loginText">
+                    <h2 style={{ margin: "2%" }}><i>Welcome to the Nutrition Tracker App!</i></h2>
+                    <p>Returning user? Login below. Otherwise press "Register" to sign up!</p>
+                </div>
             </div>
-            <div style={{ display: "flex", justifyContent: "center", width: "25em", paddingTop: "3%" }}>
-                <Form className="registerForm">
-                    <FormGroup>
-                        <Label for="loginEmail">
-                            Email
-                        </Label>
-                        <Input
-                            id="loginEmail"
-                            name="email"
-                            placeholder="example@email.com"
-                            type="email"
-                            onChange={(e) => setEmail(e.target.value)}
-                        />
-                    </FormGroup>
-                    <FormGroup>
-                        <Label for="loginPassword">
-                            Password
-                        </Label>
-                        <Input
-                            id="loginPassword"
-                            name="password"
-                            placeholder="enter password"
-                            type="password"
-                            onChange={(e) => setPassword(e.target.value)}
-                        />
-                    </FormGroup>
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                        <Button onClick={(e) => { loginSubmit(e) }} style={{ margin: "2px 5px" }}>
-                            Login
-                        </Button>
-                        <Button onClick={handleShow} style={{ margin: "2px 5px" }}>
-                            Register
-                        </Button>
-                    </div>
-                </Form>
-                    <div style={{
-                        display: "flex",
-                        position: "absolute",
-                        bottom: 0,
-                        width: "100%",
-                        height: "0",
-                        justifyContent: "center",
-                        textAlign: "center"
-                    }}>
-                        <footer className="footer">2022 &copy; Created by Kyle Ketchmark, Bryson Taeza, & Andrew Broersma.</footer>
-                    </div>
-                    {show === true ? <ModalIsShowing /> : <></>}
+            <div id="loginInput">
+                <div className="loginText">
+                    <Form className="registerForm">
+                        <FormGroup>
+                            <Label for="loginEmail">
+                                <b>Email</b>
+                            </Label>
+                            <Input
+                                id="loginEmail"
+                                name="email"
+                                placeholder="example@email.com"
+                                type="email"
+                                onChange={(e) => setEmail(e.target.value)}
+                            />
+                        </FormGroup>
+                        <FormGroup>
+                            <Label for="loginPassword">
+                                <b>Password</b>
+                            </Label>
+                            <Input
+                                id="loginPassword"
+                                name="password"
+                                placeholder="enter password"
+                                type="password"
+                                onChange={(e) => setPassword(e.target.value)}
+                            />
+                        </FormGroup>
+                        <div style={{ display: "flex", justifyContent: "center" }}>
+                            <Button onClick={(e) => { loginSubmit(e) }} style={{ margin: "2px 5px" }}>
+                                <b>Login</b>
+                            </Button>
+                            <Button onClick={handleShow} style={{ margin: "2px 5px" }}>
+                                <b>Register</b>
+                            </Button>
+                        </div>
+                    </Form>
+                </div>
+                {show === true ? <ModalIsShowing /> : <></>}
             </div>
         </div>
     )
