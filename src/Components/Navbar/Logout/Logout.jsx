@@ -4,9 +4,7 @@ import './logout.css';
 const Logout = (props) => {
 
     return (
-        <div>
-            <button id='logout' className='Logout' onClick={props.clearLocalStorage} style={{textAlign: "center"}}>Logout</button>
-        </div>
+            <button id='logout' className='Logout' onClick={props.clearLocalStorage} style={{height: '100%', width: '100%', margin: '0%', textAlign: "center"}}>Logout</button>
     )
 }
 

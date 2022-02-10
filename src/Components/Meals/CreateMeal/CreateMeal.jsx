@@ -8,7 +8,6 @@ import {
     Table
 } from 'reactstrap'
 import "bootstrap/dist/css/bootstrap.css";
-import DisplayFoods from '../DisplayFoods/DisplayFoods';
 import DisplayMeal from '../DisplayMeal/DisplayMeal';
 
 const CreateMeal = (props) => {
