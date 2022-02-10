@@ -12,9 +12,7 @@ const EditMeal = (props) => {
     const [carbs, newCarbs] = useState(0)
     const [fats, newFats] = useState(0)
     const [kCal, newKCal] = useState(0)
-
     const [inputActive, setInputActive] = useState(false)
-
 
     return (
         <div>

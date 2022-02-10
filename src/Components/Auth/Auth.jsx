@@ -21,7 +21,6 @@ const Auth = (props) => {
         }
 
         let url = `${APIURL}/user/login`
-        console.log(reqBody)
 
         fetch(url, {
             method: "POST",
