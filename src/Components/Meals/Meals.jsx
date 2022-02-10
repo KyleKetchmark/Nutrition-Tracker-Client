@@ -1,18 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import "./meals.css"
 import Navbar from '../Navbar/Navbar';
-import {
-    Button,
-    CardGroup,
-    Card,
-    CardImg,
-    CardBody,
-    CardTitle,
-    CardSubtitle,
-    CardText,
-    Table,
-    Row
-} from 'reactstrap'
+import { Button, CardGroup, Card, CardImg, CardBody, CardTitle, CardSubtitle, CardText, Table, Row } from 'reactstrap'
 import CreateMeal from './CreateMeal/CreateMeal';
 import DisplayTotals from './DisplayTotals/DisplayTotals';
 import Breakfast from '../Assets/breakfast.jpg'
@@ -52,7 +41,7 @@ const Meals = (props) => {
     }
 
     const parseJwt = (token) => {
-        if (!token) { 
+        if (!token || token === undefined) { 
             return(null); 
         } else {
         const base64Url = token.split('.')[1];
@@ -62,9 +51,7 @@ const Meals = (props) => {
     }}
     
     const fetchMeals = () => {
-        
         const id = parseJwt(localStorage.token).id
-        console.log(id)
         const url = `${APIURL}/meal/${id}`
 
         fetch(url, {
@@ -76,19 +63,10 @@ const Meals = (props) => {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data);
+            // console.log(data);
             setAllMeals(data)})
         .catch(err => console.log(err))
     }
-
-    // const deleteInRightSpot = (category) => {
-    //     let arrayMeals = Object.entries(allMeals)
-    //     console.log(arrayMeals)
-
-    //         if (meal[1].mealCat === category) {
-    //             // console.log(meal)
-    //         }
-    //     }
 
     const deleteMeal = (category) => {
 
@@ -98,12 +76,13 @@ const Meals = (props) => {
                 return arr[count]
             }
         }
-        let mealId = Object.entries(allMeals)
-        console.log(mealId);
-        let lastMeal = deleteLast(mealId);
-        let yessir = lastMeal[1].id;
 
-        let url = `${APIURL}/meal/delete/${yessir}`
+        let mealId = Object.entries(allMeals)
+        // console.log(mealId);
+        let lastMeal = deleteLast(mealId);
+        let lastMealId = lastMeal[1].id;
+
+        let url = `${APIURL}/meal/delete/${lastMealId}`
 
         fetch(url, {
             method: "DELETE",
@@ -128,18 +107,12 @@ const Meals = (props) => {
         <>
             <Navbar updateLocalStorage={props.updateLocalStorage} clearLocalStorage={props.clearLocalStorage} />
             <CardGroup>
-                <Card 
-                    id="breakfast" 
-                    style={{
-                        border: " solid 2px gray",
-                        borderRadius: "3px",
-                        margin: "1em"
-                    }}>
+                <Card className='foodItems'>
                     <CardImg alt="breakfast" src={Breakfast} top width="100%" />
                     <CardBody
                         style={{background: "#8DB38B"}}>
-                        <CardTitle tag="h2">
-                            BREAKFAST
+                        <CardTitle tag="h3" style={{textAlign: "center", paddingBottom: "2%"}}>
+                            Breakfast
                         </CardTitle>
                         <CardSubtitle className="mb-2 text-muted" tag="h6">
                             <div>
@@ -170,18 +143,12 @@ const Meals = (props) => {
                         </div>
                     </CardBody>
                 </Card>
-                <Card 
-                    id="breakfast" 
-                    style={{
-                        border: " solid 2px gray",
-                        borderRadius: "3px",
-                        margin: "1em"
-                    }}>
+                <Card className='foodItems'>
                     <CardImg alt="Card image cap" src={Lunch} top width="100%" />
                     <CardBody
                         style={{background: "#8DB38B"}}>
-                        <CardTitle tag="h2">
-                            LUNCH
+                        <CardTitle tag="h3" style={{textAlign: "center", paddingBottom: "2%"}}>
+                            Lunch
                         </CardTitle>
                         <CardSubtitle className="mb-2 text-muted" tag="h6" >
                             <Table>
@@ -210,18 +177,12 @@ const Meals = (props) => {
                         </div>
                     </CardBody>
                 </Card>
-                <Card 
-                    id="breakfast" 
-                    style={{
-                        border: " solid 2px gray",
-                        borderRadius: "3px",
-                        margin: "1em"
-                    }}>
+                <Card className='foodItems'>
                     <CardImg alt="Card image cap" src={Dinner} top width="100%" />
                     <CardBody
                         style={{background: "#8DB38B"}}>
-                        <CardTitle tag="h2">
-                            DINNER
+                        <CardTitle tag="h3" style={{textAlign: "center", paddingBottom: "2%"}}>
+                            Dinner
                         </CardTitle>
                         <CardSubtitle className="mb-2 text-muted" tag="h6" >
                             <Table>
@@ -250,19 +211,11 @@ const Meals = (props) => {
                         </div>
                     </CardBody>
                 </Card>
-                <Card 
-                    id="breakfast" 
-                    style={{
-                        border: " solid 2px gray",
-                        borderRadius: "3px",
-                        margin: "1em"
-                    }}>
+                <Card className='foodItems'>
                 <CardImg alt="Card image cap" src={Snack} top width="100%" />
-                    <CardBody
-                        style={{backgroundColor: "#8DB38B"}}
-                    >
-                        <CardTitle tag="h2">
-                            SNACKS
+                    <CardBody style={{backgroundColor: "#8DB38B"}}>
+                        <CardTitle tag="h3" style={{textAlign: "center", paddingBottom: "2%"}}>
+                            Snacks
                         </CardTitle>
                         <CardSubtitle className="mb-2 text-muted" tag="h6" >
                             <Table>
@@ -279,7 +232,8 @@ const Meals = (props) => {
                                 style={{margin: "1px 2px 1px 2px", width: "10em"}}
                                 >Add Food Item
                             </Button>
-                            {displayMeal ? <CreateMeal 
+                            {displayMeal 
+                                ? <CreateMeal 
                                 displayMeal={displayMeal} 
                                 fetchMeals={fetchMeals} 
                                 toggleModal={toggleModal} 
@@ -287,7 +241,9 @@ const Meals = (props) => {
                                 category={4} 
                                 userIdNow={userIdNow} 
                                 mealCat={mealCat} 
-                                sessionToken={props.sessionToken} /> : null}                        
+                                sessionToken={props.sessionToken} /> 
+                                : null
+                                }                        
                         </div>                    
                     </CardBody>
                 </Card>

@@ -1,5 +1,5 @@
-import React from "react";
 import './navbar.css'
+import React from "react";
 import Logout from "./Logout/Logout";
 import HealthPic from '../Assets/health-clubs-gyms-icon.png'
 
@@ -7,10 +7,20 @@ const Navbar = (props) => {
 
     return (
         <div>
-            <nav style={{display: "flex", justifyContent: "center", height: "12vh", background: "#56876D"}}>
-                <div style={{marginRight: "10em"}}><img src={HealthPic} alt="healthy lifestyle" style={{height: '65px', width: '65px', margin: '10px'}}/></div>
-                <div style={{margrin: "1px 2px 1px 2px", display: "flex", justifyContent: "center"}}>
-                    <h2>DAILY NUTRIENT TRACKER</h2>
+            <nav style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                background: "#476845",
+                borderBottom: "1px solid black",
+                boxShadow: "0px 5px white",
+                flexFlow: "row nowrap"
+                }}>
+                <div style={{margin: '2%'}}>
+                    <img src={HealthPic} alt="healthy lifestyle" style={{height: '40%', width: '40%'}}/>
+                </div>
+                <div>
+                    <h2 style={{color: "whitesmoke"}}>Daily Nutrient Tracker</h2>
                     {/* <span style={{marginLeft: '2em'}}>
                         <h2>Daily Total Cals: {props.totalkCal}</h2>
                     </span>
@@ -18,8 +28,7 @@ const Navbar = (props) => {
                         <h2>Weekly Total: {props.totalkCal}</h2>
                     </span> */}
                 </div>
-                <br />
-                <div style={{marginLeft: "20em",}}>
+                <div style={{margin: '3%'}}>
                     <Logout clearLocalStorage={props.clearLocalStorage} />
                 </div>
             </nav>

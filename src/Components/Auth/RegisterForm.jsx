@@ -14,11 +14,6 @@ const ReactForm = (props) => {
     const registerSubmit = async (event) => {
         event.preventDefault()
 
-        console.log(firstName)
-        console.log(lastName)
-        console.log(email)
-        console.log(password)
-
         let reqBody = {
             firstName,
             lastName,
@@ -26,7 +21,7 @@ const ReactForm = (props) => {
             password
         }
 
-        console.log(reqBody)
+        // console.log(reqBody)
         let url = `${APIURL}/user/register`
 
         await fetch(url, {
@@ -38,17 +33,16 @@ const ReactForm = (props) => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 props.updateLocalStorage(data.sessionToken);
                 props.toggleFunction();
-                console.log(props.show);
+                // console.log(props.show);
             })
             .catch(err => console.log(err))
 
     }
 
     return(
-        <Form onSubmit={registerSubmit}>
+        <Form onSubmit={registerSubmit} className="registerForm">
                         <FormGroup>
                             <Label for="firstName">
                                 First Name
@@ -70,7 +64,7 @@ const ReactForm = (props) => {
                                 name="lastName"
                                 placeholder="Last Name"
                                 type="text"
-                            onChange={(e) => setLastName(e.target.value)}
+                                onChange={(e) => setLastName(e.target.value)}
                             />
                         </FormGroup>
                         <FormGroup>
@@ -80,9 +74,9 @@ const ReactForm = (props) => {
                             <Input
                                 id="loginEmail"
                                 name="email"
-                                placeholder="email"
+                                placeholder="Email"
                                 type="email"
-                            onChange={(e) => setEmail(e.target.value)}
+                                onChange={(e) => setEmail(e.target.value)}
                             />
                         </FormGroup>
                         <FormGroup>
@@ -92,9 +86,9 @@ const ReactForm = (props) => {
                             <Input
                                 id="loginPassword"
                                 name="password"
-                                placeholder="password"
+                                placeholder="Password"
                                 type="password"
-                            onChange={(e) => setPassword(e.target.value)}
+                                onChange={(e) => setPassword(e.target.value)}
                             />
                         </FormGroup>
                         <Input type="submit" value="Register"/>

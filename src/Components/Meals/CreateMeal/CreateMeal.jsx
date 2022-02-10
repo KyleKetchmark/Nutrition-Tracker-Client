@@ -8,7 +8,6 @@ import {
     Table
 } from 'reactstrap'
 import "bootstrap/dist/css/bootstrap.css";
-import DisplayFoods from '../DisplayFoods/DisplayFoods';
 import DisplayMeal from '../DisplayMeal/DisplayMeal';
 
 const CreateMeal = (props) => {
@@ -19,7 +18,7 @@ const CreateMeal = (props) => {
 
     const fetchMeals = async () => {
         let urlFoodInput = foodInput.replace(" ", "%20")
-        console.log(urlFoodInput);
+        // console.log(urlFoodInput);
         const apiKey = process.env.REACT_APP_API_KEY
         const url = `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${apiKey}&query=${urlFoodInput}`
 
@@ -49,43 +48,39 @@ const CreateMeal = (props) => {
                     if (nutritionArr[j].nutrientId === 1003) {
                         let proVal = nutritionArr[j].value
                         foodObj[i].push(proVal)
-                        console.log("Protein", proVal);
+                        // console.log("Protein", proVal);
                     }
                     if (nutritionArr[j].nutrientId === 1005) {
                         let carbVal = nutritionArr[j].value
                         foodObj[i].push(carbVal)
-                        console.log("Carb:", carbVal);
+                        // console.log("Carb:", carbVal);
                     }
                     if (nutritionArr[j].nutrientId === 1004) {
                         let fatVal = nutritionArr[j].value
                         // newFats(fatVal)
                         foodObj[i].push(fatVal)
-                        console.log("Fat:", fatVal);
+                        // console.log("Fat:", fatVal);
                     }
                     if (nutritionArr[j].nutrientId === 1008) {
                         let cal = nutritionArr[j].value
                         // newKCal(cal)
                         foodObj[i].push(cal)
-                        console.log("KCal", cal);
+                        // console.log("KCal", cal);
                     }
                 }
                 // nutroArr.push(proVal, carbVal, fatVal, cal)
                 // console.log(nutroArr);
             }
         }
-        console.log(foodObj);
+        // console.log(foodObj);
         setNutroObj(foodObj)
-        console.log(nutroObj);
+        // console.log(nutroObj);
     }
-    console.log(foods)
     
-
-    // console.log(protein);
     useEffect(() => {
         // console.log(setNames(foods))
         foodArr(foods)
     }, [foods])
-
 
     return (
         <div>
@@ -98,7 +93,7 @@ const CreateMeal = (props) => {
                 </ModalHeader>
                 <ModalBody>
                     <input type="text" onChange={(e) => newFoodInput(e.target.value)} />
-                    {console.log(nutroObj)}
+                    {/* {console.log(nutroObj)} */}
                     {/* {!nutroObj ? null : <Table><DisplayMeal nutroObj={nutroObj} /></Table>} */}
                     <Table>
                         {/* Below  we see the userIdNow prop that is passed throguh to this createMeal component

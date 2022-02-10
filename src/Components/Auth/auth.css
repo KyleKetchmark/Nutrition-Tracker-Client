@@ -1,0 +1,41 @@
+#loginPage {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #8DB38B;
+    position: inherit;
+    padding-bottom: 10%;
+}
+
+.loginText {
+    background-color: whitesmoke;
+    background-position: top;
+    border-radius: 20px;
+    margin: 5%;
+    padding: 4%;
+}
+
+#loginInput {
+    display: flex;
+    justify-content: center;
+    width: 20em;
+    padding-top: 3%;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    padding: 3%;
+}
+
+.registerModal {
+    text-align: center;
+    color: black;
+    display: flex;
+    justify-content: center;
+    width: auto;
+    height: auto;
+    padding: 7%;
+}
