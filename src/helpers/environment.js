@@ -5,8 +5,8 @@ switch (window.location.hostname) {
         APIURL = 'http://localhost:3333';
         break;
 
-    case 'krk-nutrition-client.herokuapp.com/':
-        APIURL = 'https://krk-nutrition-tracker.herokuapp.com/';
+    case 'krk-nutrition-client.herokuapp.com':
+        APIURL = 'https://krk-nutrition-tracker.herokuapp.com';
         break;
 }
 
