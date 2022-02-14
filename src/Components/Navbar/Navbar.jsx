@@ -6,21 +6,20 @@ import HealthPic from '../Assets/health-clubs-gyms-icon.png'
 const Navbar = (props) => {
 
     return (
-        <div>
+        <div id='navbar'>
             <nav style={{
                 display: "flex",
                 justifyContent: "space-between",
                 alignItems: "center",
                 background: "#476845",
-                borderBottom: "1px solid black",
-                boxShadow: "0px 5px white",
+                borderBottom: "1px solid black",                
                 flexFlow: "row nowrap"
                 }}>
                 <div style={{margin: '2%'}}>
                     <img src={HealthPic} alt="healthy lifestyle" style={{height: '40%', width: '40%'}}/>
                 </div>
-                <div>
-                    <h2 style={{color: "whitesmoke"}}>Daily Nutrient Tracker</h2>
+                <div style={{background: 'whitesmoke', textAlign: 'center', padding: '1%', margin: "2%", borderRadius: '20px'}}>
+                    <h2 style={{color: "black"}}>Daily Nutrient Tracker</h2>
                     {/* <span style={{marginLeft: '2em'}}>
                         <h2>Daily Total Cals: {props.totalkCal}</h2>
                     </span>

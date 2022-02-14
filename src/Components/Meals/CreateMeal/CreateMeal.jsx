@@ -92,7 +92,7 @@ const CreateMeal = (props) => {
                     Search for a food:
                 </ModalHeader>
                 <ModalBody>
-                    <input type="text" onChange={(e) => newFoodInput(e.target.value)} />
+                    <input type="text" placeholder='enter food item' onChange={(e) => newFoodInput(e.target.value)} />
                     {/* {console.log(nutroObj)} */}
                     {/* {!nutroObj ? null : <Table><DisplayMeal nutroObj={nutroObj} /></Table>} */}
                     <Table>

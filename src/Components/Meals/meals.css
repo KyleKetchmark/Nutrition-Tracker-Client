@@ -1,6 +1,4 @@
-.foodItems {
-    border: solid 2px gray;
-    border-radius: 10px;
+.foodItems, .card{
     margin: 1em;
 }
 

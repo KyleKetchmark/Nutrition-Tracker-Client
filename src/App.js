@@ -8,12 +8,7 @@ function App() {
 
   const [sessionToken, setSessionToken] = useState(undefined)
 
-  useEffect(() => {
-    if (localStorage.getItem("token")) {
-      setSessionToken(localStorage.getItem("token"))
-    }
-  })
-
+  
   const updateLocalStorage = newToken => {
     localStorage.setItem("token", newToken)
     setSessionToken(newToken)
@@ -28,10 +23,16 @@ function App() {
     return sessionToken !== undefined ?
       <Meals sessionToken={sessionToken} updateLocalStorage={updateLocalStorage} clearLocalStorage={clearLocalStorage} />
       : <Auth updateLocalStorage={updateLocalStorage} />
-  }
-
-  return (
-    <div className='App'>
+    }
+    
+    useEffect(() => {
+      if (localStorage.getItem("token")) {
+        setSessionToken(localStorage.getItem("token"))
+      }
+    })
+    
+    return (
+      <div className='App'>
       {viewer()}
       <footer style={{
         textAlign: "center",

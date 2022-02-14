@@ -8,7 +8,7 @@ const DisplayTotals = (props) => {
     const [totalFats, setTotalFats] = useState(0)
     const [totalKCal, setTotalKCal] = useState(0)
 
-    const doAnotherThing = () => {
+    const addAmounts = () => {
         const arrayMeals = Object.entries(props.allMeals)
         // console.log(arrayMeals)
         arrayMeals.map((data, key) => {
@@ -21,7 +21,7 @@ const DisplayTotals = (props) => {
         })}
 
     useEffect(()=>{
-        doAnotherThing()
+        addAmounts()
     }, [props.allMeals])
 
     return(

@@ -1,10 +1,10 @@
-import React from "react";
 import './logout.css';
+import React from "react";
 
 const Logout = (props) => {
 
     return (
-            <button id='logout' className='Logout' onClick={props.clearLocalStorage} style={{height: '100%', width: '100%', margin: '0%', textAlign: "center"}}>Logout</button>
+            <button id='logout' className='Logout' onClick={props.clearLocalStorage}>Logout</button>
     )
 }
 
